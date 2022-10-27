@@ -1,6 +1,7 @@
 import Foundation // imports Darwin as a part of it , so Foundation is enough
 // for the exit function
 
+
 func bubbleSort(arr: inout [Int]) {
     let n = arr.count
     for i in 0...n-2 {
@@ -8,7 +9,11 @@ func bubbleSort(arr: inout [Int]) {
         for j in i+1...n-1 {
             if(arr[j] < arr[i]){
                 arr.swapAt(j,i)
+                swap_count += 1
             }
+        }
+        if swap_count = 0 {
+            break
         }
     }
 }
