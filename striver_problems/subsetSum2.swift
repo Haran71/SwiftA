@@ -1,5 +1,8 @@
 import Foundation
 
+
+// Problem Statement: Given an array of integers that may contain duplicates the task is to return all possible subsets. Return only unique subsets and they can be in any order.
+
 func Guard(_ A:Int?) -> Int {
     guard let n = A else {
         print("Invalid Value entered")
