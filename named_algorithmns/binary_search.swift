@@ -42,6 +42,8 @@ print("Enter value to be found:",terminator: " ")
 let tt = Int(readLine()!)
 let target = Guard(A: tt)
 
+arr.sort()
+
 let pos = binarySearch(arr: arr, target: target)
 
 if pos == -1 {
