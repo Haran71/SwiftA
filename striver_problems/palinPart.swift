@@ -1,5 +1,7 @@
 import Foundation
 
+// Problem Statement: You are given a string s, partition it in such a way that every substring is a palindrome. Return all such palindromic partitions of s.
+
 extension String {
 
     var length: Int {
@@ -38,6 +40,7 @@ func Guard(_ str:String?) -> String {
 struct Global {
     static var result = [[String]]()
     static  var str_len:Int = 0
+    static var str:String = " "
 }
 
 func isPalindrome(_ str:String,_ s:Int, _ f:Int) -> Bool {
@@ -62,17 +65,17 @@ func soln(_ str:String,_ elem_arr:[String],_ index: Int) -> Void {
     var new_arr = elem_arr // to allow modifications
     
     for i in index..<Global.str_len {
-        if(isPalindrome(str, index, i)) {
-            new_arr.append(String(str.dropFirst(index).prefix(i+1-index)))
-            soln(String(str.dropFirst(i+1)),new_arr,i+1) // you change str everytime and as a result its gets confusing wit fix it!
+        if(isPalindrome(Global.str, index, i)) {
+            new_arr.append(String(Global.str.dropFirst(index).prefix(i+1-index)))
+            soln(String(Global.str.dropFirst(i+1)),new_arr,i+1) // you change str everytime and as a result its gets confusing wit fix it!
             new_arr.removeLast()
         }
     }
 }
 
 print("Enter string: ",terminator: "")
-let str = readLine()! // Guard function may not be necessart, still doesn't hurt to have it
-Global.str_len = str.count
-soln(str,[],0)
+Global.str = readLine()! // Guard function may not be necessart, still doesn't hurt to have it
+Global.str_len = Global.str.count
+soln(Global.str,[],0)
 print(Global.result)
 
